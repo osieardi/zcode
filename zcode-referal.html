@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Referal Code</title>
+    <style>
+        /* CSS to style the text */
+        #text-to-copy {
+            position: absolute;
+            font-size: 40px;
+            font-weight: bold;
+            top: 28%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: relative;">
+        <img src="https://raw.githubusercontent.com/osieardi/zcode-copy/main/1080x1920_IGSTORY_1111REFERAL.jpg"
+            alt="referal">
+        <p id="text-to-copy">ZLRE4W2Y</p>
+    </div>
+
+    <script>
+        document.getElementById('text-to-copy').addEventListener('click', function () {
+            // Get the text to copy
+            var textToCopy = this.textContent;
+
+            // Create a temporary input element
+            var tempInput = document.createElement('input');
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+
+            // Select and copy the text to the clipboard
+            tempInput.select();
+            document.execCommand('copy');
+
+            // Remove the temporary input element
+            document.body.removeChild(tempInput);
+
+            // Provide visual feedback to the user
+            this.textContent = 'Text Copied!';
+            setTimeout(function () {
+                document.getElementById('text-to-copy').textContent = 'Click me to copy this code';
+            }, 2000); // Reset the text after 2 seconds
+        });
+    </script>
+</body>
+
+</html>
