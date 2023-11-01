@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Copy to Clipboard</title>
+</head>
+<body>
+    <p id="text-to-copy">This text will be copied to the clipboard when the link is clicked.</p>
+    <a href="javascript:void(0);" id="copy-link">Copy to Clipboard</a>
+
+    <script>
+        document.getElementById('copy-link').addEventListener('click', function() {
+            // Get the text you want to copy
+            var textToCopy = document.getElementById('text-to-copy').textContent;
+
+            // Create a temporary input element
+            var tempInput = document.createElement('input');
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+
+            // Select and copy the text to the clipboard
+            tempInput.select();
+            document.execCommand('copy');
+
+            // Remove the temporary input element
+            document.body.removeChild(tempInput);
+        });
+    </script>
+</body>
+</html>
